@@ -29,26 +29,28 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-16">
+
           <div className="flex-shrink-0">
             <img src="assets/logo.png" alt="Logo" className="h-40" />
           </div>
 
-          <div className="hidden md:flex space-x-6">
+     
+          <div className="hidden md:flex flex-1 justify-center space-x-6">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 className={`${
                   isScrolled ? 'text-gray-700' : 'text-white'
-                } hover:text-black-600 transition-all px-3 py-2 text-lg font-medium`}
+                } hover:text-black transition-all px-3 py-2 text-lg font-medium`}
               >
                 {item.label}
               </a>
             ))}
           </div>
 
+       
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -62,10 +64,10 @@ export default function Navbar() {
         </div>
       </div>
 
-   
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute inset-x-0 top-16 p-4 rounded-md transition-all duration-300">
-          <div className="space-y-4">
+          <div className="flex flex-col items-center space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
